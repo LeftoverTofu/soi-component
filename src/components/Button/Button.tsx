@@ -13,12 +13,16 @@ const StyledButton = styled.button<ButtonProps>`
   border: 1px solid
     ${(props) => (props.variant === "secondary" ? "cyan" : "orange")};
   border-radius: 5px;
-  cursor: pointer;
-  background: linear-gradient(#fff2, transparent);
+  cursor: ${(props) => (props.disabled ? "default" : "pointer")};
+  background: ${(props) =>
+    props.disabled
+      ? "rgb(0, 0, 0, 0.1)"
+      : "linear-gradient(#fff2, transparent)"};
   box-shadow: 0 25px, 25px rgb(0, 0, 0, 0.25);
 
   &:hover {
-    background: rgb(0, 0, 0, 0.1);
+    background: ${(props) =>
+      props.disabled ? "rgb(0, 0, 0, 0.1)" : "rgb(0, 0, 0, 0.1)"};
   }
 `;
 const Button: React.FC<ButtonProps> = ({
